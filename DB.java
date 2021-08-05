@@ -1,0 +1,30 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.*;
+
+	public class DB
+	{
+		public static void main(String f[])
+		{
+			DB.getCon();
+		}
+		public static Connection getCon()
+		{
+			Connection con=null;
+			
+			try
+			{
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mbs","mbs");
+				System.out.println("connected");
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				System.out.println(e);
+			}
+			return con;
+		}
+	}
